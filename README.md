@@ -19,7 +19,7 @@ Installing
 
 please clone the git using following command
 
-   git clone "git@github.com:dipakthoke/Asset-Management.git
+   git clone https://github.com/darlesh/Shop-Finder.git
 Once git cloning is finish refresh build.gradle file this after all dependencies get downloaded.
 
 Running
