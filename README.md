@@ -84,6 +84,15 @@ Output -
            ]
        }
        
+     3. If SomeOne Already Accessing same Shop at the Instant
+     
+         {
+            [
+            "Status : Concurrency Control"
+            "Description :  Opps...Somone is also Accessing same data"
+            ]
+          }
+       
      2. If Shops Not Present-
      
           {
