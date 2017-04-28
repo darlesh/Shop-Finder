@@ -24,16 +24,16 @@ public class ShopNearService {
 
 		Map<String, ArrayList<String>> resaltMap = new HashMap<String, ArrayList<String>>();
 		
-		if (longitude.equals("") && latitude.equals("")) {
+		//if (longitude.equals("") && latitude.equals("")) {
 			resaltMap = findNearestShops(longitude, latitude);
 			return resaltMap;
-		}else{
+		/*}else{
 			ArrayList<String> addresswithLatLongSecond = new ArrayList<String>();
 
 			addresswithLatLongSecond.add("Status :- Not All Parameter Pass") ;
 			resaltMap.put("Error" ,addresswithLatLongSecond);
 			return resaltMap;
-		}
+		}*/
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -43,6 +43,8 @@ public class ShopNearService {
 	
 	Map<String, ArrayList<String>> findNearestShops(double longitude,double latitude)
 	{
+		Map<String, ArrayList<String>> resultMap = new HashMap<String, ArrayList<String>>();
+		try{
 		DBHelper.getAllLatLong();
 		Double finallat = null;
 		Double finallon = null;
@@ -73,7 +75,7 @@ public class ShopNearService {
 		System.out.println("output................" + finallat + "" + finallon);
 		String[] res = DBHelper.getShopName(finallon, finallat);
 
-		Map<String, ArrayList<String>> resultMap = new HashMap<String, ArrayList<String>>();
+	
 
 		ArrayList<String> addresswithLatLong = new ArrayList<String>();
 
@@ -100,6 +102,13 @@ public class ShopNearService {
 		resultMap.put("Second Nearest shopName :- " + ressecond[0], addresswithLatLongSecond);
 
 		resultMap.put("Nearest shopName :- " + res[0], addresswithLatLong);
+		}catch(Exception e){
+			ArrayList<String> addresswithLatLongSecond = new ArrayList<String>();
+
+			addresswithLatLongSecond.add("Description :- Not Enough Entrys " );
+
+			resultMap.put("Error :- ", addresswithLatLongSecond);
+		}
 
 		return resultMap;
 
