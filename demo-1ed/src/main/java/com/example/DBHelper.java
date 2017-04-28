@@ -35,7 +35,7 @@ public class DBHelper {
 		try {
 			connection.setAutoCommit(false);
 			stmt = connection.createStatement();
-			stmt.execute("DROP TABLE Shops");
+			//stmt.execute("DROP TABLE Shops");
 			stmt.execute(
 					"CREATE TABLE IF NOT EXISTS Shops(shopName varchar(255) primary key, address varchar(255), lon varchar(25),lat varchar(25))");
 
