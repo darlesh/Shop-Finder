@@ -24,17 +24,11 @@ public class ShopNearService {
 
 		Map<String, ArrayList<String>> resaltMap = new HashMap<String, ArrayList<String>>();
 		
-		//if (longitude.equals("") && latitude.equals("")) {
+		
 			resaltMap = findNearestShops(longitude, latitude);
 			return resaltMap;
-		/*}else{
-			ArrayList<String> addresswithLatLongSecond = new ArrayList<String>();
-
-			addresswithLatLongSecond.add("Status :- Not All Parameter Pass") ;
-			resaltMap.put("Error" ,addresswithLatLongSecond);
-			return resaltMap;
-		}*/
-	}
+		
+	       }
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(ShopInsertService.class, args);
@@ -76,38 +70,29 @@ public class ShopNearService {
 		String[] res = DBHelper.getShopName(finallon, finallat);
 
 	
-
 		ArrayList<String> addresswithLatLong = new ArrayList<String>();
-
 		addresswithLatLong.add("Shop Adress :- " + res[1]);
-
 		addresswithLatLong.add("Shop Away from you :-" + minDist / 1000 + " Km");
-
 		addresswithLatLong.add(" Logitude :- " + finallon);
-
 		addresswithLatLong.add(" Latitude :- " + finallat);
 
 		String[] ressecond = DBHelper.getShopName(secondlargestlon, secondlargestlat);
 
 		ArrayList<String> addresswithLatLongSecond = new ArrayList<String>();
-
 		addresswithLatLongSecond.add("Shop Adress :- " + ressecond[1]);
-
 		addresswithLatLongSecond.add("Shop Away from you :-" + secondminDist / 1000 + " Km");
-
 		addresswithLatLongSecond.add(" Logitude :- " + secondlargestlon);
-
 		addresswithLatLongSecond.add(" Latitude :- " + secondlargestlat);
 
 		resultMap.put("Second Nearest shopName :- " + ressecond[0], addresswithLatLongSecond);
-
 		resultMap.put("Nearest shopName :- " + res[0], addresswithLatLong);
+		
 		}catch(Exception e){
+			
 			ArrayList<String> addresswithLatLongSecond = new ArrayList<String>();
-
 			addresswithLatLongSecond.add("Description :- Not Enough Entrys " );
-
 			resultMap.put("Error :- ", addresswithLatLongSecond);
+	
 		}
 
 		return resultMap;
