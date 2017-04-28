@@ -19,8 +19,8 @@ public class ShopNearService {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/ShopNear", produces = "application/json")
 	@ResponseBody
-	Map<String, ArrayList<String>> home(@RequestParam(value = "longitude", defaultValue = "") Double longitude,
-			@RequestParam(value = "latitude", defaultValue = "") Double latitude) throws JSONException {
+	Map<String, ArrayList<String>> home(@RequestParam(value = "longitude", defaultValue = "0") Double longitude,
+			@RequestParam(value = "latitude", defaultValue = "0") Double latitude) throws JSONException {
 
 		Map<String, ArrayList<String>> resaltMap = new HashMap<String, ArrayList<String>>();
 		
