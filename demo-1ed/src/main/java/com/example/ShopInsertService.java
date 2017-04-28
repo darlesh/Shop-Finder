@@ -25,22 +25,28 @@ public class ShopInsertService {
 		
 		ArrayList<String> resultArr = new ArrayList<String>();
 		String[] dbResult = null,checkRes=null;
-		
+	
+		//Checking for Parameters Pass	or not
+	
 		if (!shopName.equals("null") && !address.equals("null")) {
+			
+			//Checking for other User Accessing Same Shop
 			if(!Application.controlList.contains(shopName)){
 			try {
-				
+				//Calling DB for chacking shop present or not
 				checkRes=DBHelper.CheckShopPresent(shopName);
 				if(checkRes[0].contains("1")){
+					//Concurrency Parameter updation  
 					Application.controlList.add(checkRes[1]);
 				}
 				
-				
+				//Colling DB for Insert Shop
 				dbResult = DBHelper.insertShopToDB(shopName, address);
 				
-				System.out.println("resssssss"+checkRes[1]+Application.controlList.contains(checkRes[1]));
-				
+				//Remove shop From Sncronize list to allow other user update shop 
 				Application.controlList.remove(checkRes[1]);
+				
+				//Generating Result
 				if (dbResult[0].equals("0")) {
 					resultArr.add("Status : Success" );
 					resultArr.add("Description : Added Shop '" + shopName + "' and address '" + address + "'");
@@ -56,6 +62,7 @@ public class ShopInsertService {
 			}
 			
 			}else{
+				//If Someone is Accesing the Shop Requested by User
 				resultArr.add("Status : Concurrency Control" );
 				resultArr.add("Description :  Opps...Somone is also Accessing same data");
 				return resultArr;
@@ -68,13 +75,8 @@ public class ShopInsertService {
 			return resultArr;
 		}
 
-		
-
 		resultArr.add("Status :  Error" );
-
 		resultArr.add("Description :  Something Went Wrong");
-
-		
 		return resultArr;
 	}
 
