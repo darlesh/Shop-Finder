@@ -10,16 +10,20 @@ Prerequisites :
 
 java jdk 1.6 or above
 IDE (eclispe or intellij idea)
+
 Built With:
 
 Gradle - Dependency Management
+
 Note:
 if you are using eclispe then you need install gradle for eclispe.
+
 Installing
 
 please clone the git using following command
 
    git clone https://github.com/darlesh/Shop-Finder.git
+   
 Once git cloning is finish refresh build.gradle file this after all dependencies get downloaded.
 
 Running
