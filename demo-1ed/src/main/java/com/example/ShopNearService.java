@@ -24,7 +24,7 @@ public class ShopNearService {
 
 		Map<String, ArrayList<String>> resaltMap = new HashMap<String, ArrayList<String>>();
 		
-		
+			//Calling Same Class Methode
 			resaltMap = findNearestShops(longitude, latitude);
 			return resaltMap;
 		
@@ -35,24 +35,35 @@ public class ShopNearService {
 	}
 
 	
+	//Core Methode for calculating Nearest Shop 
 	Map<String, ArrayList<String>> findNearestShops(double longitude,double latitude)
 	{
 		Map<String, ArrayList<String>> resultMap = new HashMap<String, ArrayList<String>>();
 		try{
+			
+		//Calling DB for getting Lat. and Long.	
 		DBHelper.getAllLatLong();
+			
 		Double finallat = null;
 		Double finallon = null;
 		Double secondlargestlat = null, secondlargestlon = null;
 		Float minDist = 0f, secondminDist = 0f;
+		
 		for (int i = 0; i < DBHelper.lat.size(); i++) {
+		
 			float dist = 0;
+			
+			//Methode for getting Distance From Current Location to Shop(Pass 2 lat.and 2 long.)
 			dist = distFrom(longitude, latitude, (Double) DBHelper.lat.get(i), (Double) DBHelper.lon.get(i));
+			
 			System.out.println("Mindist" + minDist + "      dist" + dist);
 			if (i == 0) {
 				minDist = dist;
 				finallat = DBHelper.lat.get(i);
 				finallon = DBHelper.lon.get(i);
 			}
+			
+			//If condition if get minimum distance 
 			if (minDist > dist) {
 
 				secondlargestlat = finallat;
@@ -69,7 +80,7 @@ public class ShopNearService {
 		System.out.println("output................" + finallat + "" + finallon);
 		String[] res = DBHelper.getShopName(finallon, finallat);
 
-	
+		//For Generation Result
 		ArrayList<String> addresswithLatLong = new ArrayList<String>();
 		addresswithLatLong.add("Shop Adress :- " + res[1]);
 		addresswithLatLong.add("Shop Away from you :-" + minDist / 1000 + " Km");
@@ -99,6 +110,7 @@ public class ShopNearService {
 
 	}
 
+	//This Method Calculate distance from 1 geo location to another in Meter 
 	public static float distFrom(double lat1, double lng1, double lat2, double lng2) {
 		double earthRadius = 6371000; // meters
 		double dLat = Math.toRadians(lat2 - lat1);
