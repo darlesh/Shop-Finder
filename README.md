@@ -30,10 +30,12 @@ Running
 
 Right click run as spring boot application.
 
-To add an shop you can use below api :
+
 
 1.  http://localhost:8080/ShopInsert?shopName=Dominos&address=Delhi
-
+  
+  To add an shop you can use below api :
+  
 Output - 
 
     1. If Shop Not Present in Database-
@@ -54,8 +56,39 @@ Output -
         "Description :  Please Pass Parameters like Shop name and address"
     ]
 
-If want search near by shops then use below api : this will return nearest shops :
+
 
 2.  http://localhost:8080/ShopNear?longitude=18.5204303&latitude=73.8567437
+
+   want search near by shops then use below api : this will return nearest shops.
+
+Output - 
+
+    1. If Shops Present In Databse 
+    
+      {
+           "Nearest shopName :- DominosMumbai": [
+           "Shop Adress :- Mumbai",
+           "Shop Away from you :-120.15756 Km",
+    "      Logitude :- 72.8776559",
+           " Latitude :- 19.0759837"
+           ],
+      
+          "Second Nearest shopName :- DominosDelhi": [
+          "Shop Adress :- Delhi",
+          "Shop Away from you :-1179.4734 Km",
+          " Logitude :- 77.1024902",
+          " Latitude :- 28.7040592"
+           ]
+       }
+       
+     2. If Shops Not Present-
+     
+          {
+            "Error":[
+            "Description :- Not Enough Entrys"
+            ]
+          }
+     
 
 where, lat = latitude lng = longitude
