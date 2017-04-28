@@ -12,6 +12,7 @@ import java.util.Map;
 public class DBHelper {
 	public static ArrayList<Double> lat, lon;
 
+	//Getting Connection
 	private static Connection getDBConnection() {
 		Connection dbConnection = null;
 		try {
@@ -29,6 +30,7 @@ public class DBHelper {
 		return dbConnection;
 	}
 
+	//Createing Schema
 	public static int CreateTable() {
 		Connection connection = getDBConnection();
 		Statement stmt = null;
@@ -52,6 +54,7 @@ public class DBHelper {
 		return 0;
 	}
 
+	//Checking Shop Is Present or not 
 	public static String[] CheckShopPresent(String ShopName) throws SQLException {
 		Connection connection = getDBConnection();
 		Statement stmt = null;
@@ -84,6 +87,7 @@ public class DBHelper {
 	}
 	
 	
+	//Inser Shop To db
 	public static String[] insertShopToDB(String ShopName, String address) throws SQLException {
 		Connection connection = getDBConnection();
 		Statement stmt = null;
@@ -126,6 +130,7 @@ public class DBHelper {
 		return res;
 	}
 
+	//If Shop Is Present then update Address in db
 	public static void updateShopToDB(String ShopName, String address, String[] loglat) throws SQLException {
 		Connection connection = getDBConnection();
 		Statement stmt = null;
@@ -153,6 +158,7 @@ public class DBHelper {
 		}
 	}
 
+	//Getting LAT and LONG
 	public static Double[][] getAllLatLong() {
 		// TODO Auto-generated method stub
 		lat = new ArrayList();
@@ -188,6 +194,7 @@ public class DBHelper {
 		return null;
 	}
 
+	//Getting Shop name from Geolocation
 	public static String[] getShopName(Double lon, Double lat) {
 		// TODO Auto-generated method stub
 
