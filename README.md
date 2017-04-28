@@ -2,7 +2,7 @@
 
 The Shop Finder is spring boot RESTFful application which consist different services to perstist the shop data and getting nearest shop from using longitude and latitude to persist data this application use h2(In memory database.
 
-Getting Started
+Getting Started 
 
 To run this spring boot gradle application on local machine
 
@@ -25,6 +25,8 @@ please clone the git using following command
    git clone https://github.com/darlesh/Shop-Finder.git
    
 Once git cloning is finish refresh build.gradle file this after all dependencies get downloaded.
+
+Important Note :- " You Have to Set Proxy Setting in GeocodeImplemetation.java on Line no 44"
 
 Running
 
