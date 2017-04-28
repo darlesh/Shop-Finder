@@ -34,6 +34,26 @@ To add an shop you can use below api :
 
 1.  http://localhost:8080/ShopInsert?shopName=Dominos&address=Delhi
 
+Output - 
+
+    1. If Shop Not Present in Database-
+    [
+        "Status : Success",
+        "Description : Added Shop 'Dominos' and address 'Delhi'"
+    ]
+    
+    2. If Shop Already Present In Database- 
+    [
+        "Status : Updated",
+         "Description :  Updated Shop 'Dominos'.Updated address as 'Delhi'  .Repleced Address is 'Panjab'"
+    ]
+    
+    3. If No Parameters Pass
+    [
+        "Status :  NotParameters", 
+        "Description :  Please Pass Parameters like Shop name and address"
+    ]
+
 If want search near by shops then use below api : this will return nearest shops :
 
 2.  http://localhost:8080/ShopNear?longitude=18.5204303&latitude=73.8567437
