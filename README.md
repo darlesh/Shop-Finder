@@ -26,7 +26,7 @@ please clone the git using following command
    
 Once git cloning is finish refresh build.gradle file this after all dependencies get downloaded.
 
-Important Note :- " You Have to Set Proxy Setting in GeocodeImplemetation.java on Line no 44"
+  Important Note :- " You Have to Set Proxy Setting in GeocodeImplemetation.java on Line no 44"
 
 Running
 
