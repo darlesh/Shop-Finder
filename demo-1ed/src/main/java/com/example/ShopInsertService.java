@@ -1,13 +1,7 @@
 package com.example;
 
-import java.awt.PageAttributes.MediaType;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.concurrent.ConcurrentSkipListSet;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +15,7 @@ public class ShopInsertService {
 	@RequestMapping(method = RequestMethod.POST, value = "/ShopInsert", produces = "application/json")
 	@ResponseBody
 	ArrayList<String> home(@RequestParam(value = "shopName", defaultValue = "null") String shopName,
-			@RequestParam(value = "address", defaultValue = "null") String address) throws JSONException {
+			@RequestParam(value = "address", defaultValue = "null") String address) {
 		
 		ArrayList<String> resultArr = new ArrayList<String>();
 		String[] dbResult = null,checkRes=null;
