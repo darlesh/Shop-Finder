@@ -35,6 +35,8 @@ Right click run as spring boot application.
 
 
 1.  http://localhost:8080/ShopInsert?shopName=Dominos&address=Delhi
+    
+    Methode - Post
   
   To add an shop you can use below api :
   
@@ -61,6 +63,8 @@ Output -
 
 
 2.  http://localhost:8080/ShopNear?longitude=18.5204303&latitude=73.8567437
+
+    Methode - Post
 
    want search near by shops then use below api : this will return nearest shops.
 
