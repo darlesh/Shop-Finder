@@ -1,13 +1,8 @@
 package com.example;
 
-import java.awt.PageAttributes.MediaType;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
@@ -20,7 +15,7 @@ public class ShopNearService {
 	@RequestMapping(method = RequestMethod.POST, value = "/ShopNear", produces = "application/json")
 	@ResponseBody
 	Map<String, ArrayList<String>> home(@RequestParam(value = "longitude", defaultValue = "0") Double longitude,
-			@RequestParam(value = "latitude", defaultValue = "0") Double latitude) throws JSONException {
+			@RequestParam(value = "latitude", defaultValue = "0") Double latitude){
 
 		Map<String, ArrayList<String>> resaltMap = new HashMap<String, ArrayList<String>>();
 		
