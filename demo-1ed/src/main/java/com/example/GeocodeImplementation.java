@@ -24,8 +24,8 @@ import org.w3c.dom.Document;
                    int responseCode = 0;
                    String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
                    URL url = new URL(api);
-                   System.setProperty("http.proxyHost", "10.2.11.31");     //Update Proxy Here
-                   System.setProperty("http.proxyPort", "8585");           //Also Update Port Here
+                   //System.setProperty("http.proxyHost", "10.2.11.31");     //Update Proxy Here
+                   //System.setProperty("http.proxyPort", "8585");           //Also Update Port Here
 
                    HttpURLConnection httpConnection = (HttpURLConnection)url.openConnection();
 
