@@ -107,7 +107,7 @@ public class DBHelper {
 				updateShopToDB(ShopName, address, loglat);
 			} else {
 				stmt.execute("INSERT INTO Shops(shopName, address,lat,lon) VALUES('" + ShopName + "', '" + address
-						+ "','" + loglat[0] + "','" + loglat[1] + "')");
+						+ "','" + Double.parseDouble(loglat[0]) + "','" + Double.parseDouble(loglat[1]) + "')");
 				System.out.println("Shop Inserted.............");
 			}
 			ResultSet rs1 = stmt.executeQuery("select * from Shops");
@@ -137,9 +137,9 @@ public class DBHelper {
 		try {
 			connection.setAutoCommit(true);
 			stmt = connection.createStatement();
-			stmt.execute("UPDATE Shops SET address = '" + address + "' , lat = '" + loglat[0] + "', lon = '" + loglat[1]
+			stmt.execute("UPDATE Shops SET address = '" + address + "' , lat = '" + Double.parseDouble(loglat[0]) + "', lon = '" + Double.parseDouble(loglat[1])
 					+ "'  WHERE shopName = '" + ShopName + "'");
-
+			
 			ResultSet rs = stmt.executeQuery("select * from Shops");
 			System.out.println("Shop Updated............");
 			while (rs.next()) {
